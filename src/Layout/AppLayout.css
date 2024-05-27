@@ -1,0 +1,17 @@
+/* AppLayout.css */
+html, body {
+    height: 100%;
+    margin: 0;
+    background-color: black;
+    color: white;
+  }
+  
+  #root {
+    height: 100%;
+  }
+  
+  .app-layout {
+    min-height: 100vh;
+    background-color: black;
+    color: white;
+  }
