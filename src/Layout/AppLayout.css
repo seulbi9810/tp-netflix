@@ -15,3 +15,8 @@ html, body {
     background-color: black;
     color: white;
   }
+
+
+  input::placeholder {
+    color: gray; /* 원하는 색상으로 변경 */
+  }

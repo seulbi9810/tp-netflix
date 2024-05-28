@@ -33,7 +33,6 @@ const AppLayout = () => {
               placeholder="Search"
               className="me-2"
               aria-label="Search"
-              placeholderTextColor="gray" // Placeholder의 색상을 변경합니다.
             />
             <Button variant="outline-success" style={{background: 'red', border:'none', ':hover': { background: 'darkblack'}}}>Search</Button>
           </Form>
