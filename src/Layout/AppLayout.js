@@ -1,15 +1,25 @@
-import React from 'react'
+import React,{useState} from 'react'
 import Button from 'react-bootstrap/Button';
 import Container from 'react-bootstrap/Container';
 import Form from 'react-bootstrap/Form';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
-import { Outlet } from 'react-router-dom';
+import { Outlet, useNavigate } from 'react-router-dom';
 import NetflixLogo from '../img/Netflix.png';
 import './AppLayout.css';  // 추가: CSS 파일을 import
 
 
 const AppLayout = () => {
+
+  const [keyword, setKeyword]= useState('')
+  const navigate= useNavigate()
+  
+  const searchByKeyword=(event)=>{
+    event.preventDefault()
+    //url 바꿔주기
+    navigate(`./movies?q=${keyword}`)
+    setKeyword("");
+  }
   return (
     <div className="app-layout">
       <Navbar expand="lg" className="bg-body-tertiary" style={{ margin: 0, padding: 0, background: 'black', width: '100%' }}  > 
@@ -28,13 +38,15 @@ const AppLayout = () => {
           </Nav>
           <Form className="d-flex">
           <Form.Control
-              style={{ background: 'black', color: 'white' }}
+              style={{ background: 'white', color: 'black' }}
               type="search"
               placeholder="Search"
               className="me-2"
               aria-label="Search"
+              value={keyword}
+              onChange={(event)=>setKeyword(event.target.value)}
             />
-            <Button variant="outline-success" style={{background: 'red', border:'none', ':hover': { background: 'darkblack'}}}>Search</Button>
+            <Button href='/movies' variant="outline-success" style={{background: 'red', border:'none', ':hover': { background: 'darkblack'}}}>Search</Button>
           </Form>
         </Navbar.Collapse>
       </Container>
