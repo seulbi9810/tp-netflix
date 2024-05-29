@@ -11,13 +11,14 @@ import './AppLayout.css';  // 추가: CSS 파일을 import
 
 const AppLayout = () => {
 
-  const [keyword, setKeyword]= useState('')
+  const [keyword, setKeyword]= useState("")
   const navigate= useNavigate()
   
   const searchByKeyword=(event)=>{
     event.preventDefault()
     //url 바꿔주기
-    navigate(`./movies?q=${keyword}`)
+    navigate(`/movies?q=${keyword}`)
+    //검색 후 초기화
     setKeyword("");
   }
   return (
@@ -36,7 +37,7 @@ const AppLayout = () => {
             <Nav.Link href="/movies" style={{color:'white'}}>Movie</Nav.Link>
           
           </Nav>
-          <Form className="d-flex">
+          <Form className="d-flex" onSubmit={searchByKeyword}>
           <Form.Control
               style={{ background: 'white', color: 'black' }}
               type="search"
@@ -46,7 +47,7 @@ const AppLayout = () => {
               value={keyword}
               onChange={(event)=>setKeyword(event.target.value)}
             />
-            <Button href='/movies' variant="outline-success" style={{background: 'red', border:'none', ':hover': { background: 'darkblack'}}}>Search</Button>
+            <Button type='submit' href='/movies' variant="outline-success"  style={{background: 'red', border:'none', ':hover': { background: 'darkblack'}}}>Search</Button>
           </Form>
         </Navbar.Collapse>
       </Container>
