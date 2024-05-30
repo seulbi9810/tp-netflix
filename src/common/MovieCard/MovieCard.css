@@ -3,15 +3,15 @@
     height: 100%;
     opacity: 0; /* 기본적으로 투명 */
     transition: opacity 0.5s; /* opacity에 대해서만 transition 적용 */
-    color: black;
+    color: white;
     font-weight: bold; /* 텍스트를 진하게 설정 */
-    font-size: 12px;
+    font-size: 16px;
     overflow-wrap: break-word;
     padding: 2rem;
 }
 
 .title {
-    font-size: 20px;
+    font-size: 24px;
     font-weight: bold;
 }
 

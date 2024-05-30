@@ -1,6 +1,8 @@
 import React from 'react'
 import { Badge } from 'react-bootstrap'
 import './MovieCard.css'
+import { useNavigate } from "react-router-dom"
+
 
 const genreMap = {
     28: 'Action',
@@ -26,24 +28,32 @@ const genreMap = {
 
 const MovieCard = ({movie}) => {
     const getGenreName = (id) => genreMap[id] || 'Unknown';
+    const navigate= useNavigate()
+
+    const goMovieDetail=()=>{
+        navigate(`/movies/{movie_id}`)
+    }
+
   return (
-    <div 
-        style={{backgroundImage:"url("+`https://www.themoviedb.org/t/p/w600_and_h900_bestv2${movie.poster_path}`+
-        ")",
-    }}
-    className='movie-card'
-    >
-        <div className='overlay'>
-            <h1 className='title'>{movie.title}</h1>
-            {movie.genre_ids.map((id)=> (
-                <Badge key={id} bg="danger">{getGenreName(id)}</Badge>
-            ))}
-            <div>평점 : {movie.vote_average}⭐</div>
-            <div>인기도 : {movie.popularity}🔥</div>
-            <div>{movie.adult?'over18 : 🔞':'under18 : 🚫'}</div>
-        </div>
-      
-    </div>
+   
+      <div onClick={goMovieDetail}
+          style={{backgroundImage:"url("+`https://www.themoviedb.org/t/p/w600_and_h900_bestv2${movie.poster_path}`+
+          ")",
+      }}
+      className='movie-card'
+      >
+          <div className='overlay'>
+              <h1 className='title'>{movie.title}</h1>
+              {movie.genre_ids.map((id)=> (
+                  <Badge key={id} bg="danger">{getGenreName(id)}</Badge>
+              ))}
+              <div>평점 : {movie.vote_average}⭐</div>
+              <div>인기도 : {movie.popularity}🔥</div>
+              <div>{movie.adult?'over18 : 🔞':'under18 : 🚫'}</div>
+          </div>
+        
+      </div>
+   
   )
 }
 
