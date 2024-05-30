@@ -23,7 +23,7 @@ const AppLayout = () => {
   }
   return (
     <div className="app-layout">
-      <Navbar expand="lg" className="bg-body-tertiary" style={{ margin: 0, padding: 0, background: 'black', width: '100%' }}  > 
+      <Navbar expand="lg" className="bg-body-tertiary" style={{ margin:0 , padding: 0, background: 'black', width: '100%' }}  > 
       <Container fluid style={{background:'black', color:'white'}}>
         <Navbar.Brand href="#"><img src={NetflixLogo} alt='netflix' style={{width:'200px'}}/></Navbar.Brand>
         <Navbar.Toggle aria-controls="navbarScroll" />
@@ -39,7 +39,7 @@ const AppLayout = () => {
           </Nav>
           <Form className="d-flex" onSubmit={searchByKeyword}>
           <Form.Control
-              style={{ background: 'white', color: 'black' }}
+              style={{ background: 'white', color: 'black', marginRight:'1rem' }}
               type="search"
               placeholder="Search"
               className="me-2"
@@ -47,7 +47,8 @@ const AppLayout = () => {
               value={keyword}
               onChange={(event)=>setKeyword(event.target.value)}
             />
-            <Button type='submit' href='/movies' variant="outline-success"  style={{background: 'red', border:'none', ':hover': { background: 'darkblack'}}}>Search</Button>
+            <Button type='submit' href='/movies' variant="outline-success"  style={{background: 'red', marginRight:'1rem', border:'none', ':hover': { background: 'darkblack'}}}>Search</Button>
+            <Button type='button' href='/login' variant="outline-success"  style={{background: 'red', marginRight:'1rem', border:'none', ':hover': { background: 'darkblack'}}}>Login</Button>
           </Form>
         </Navbar.Collapse>
       </Container>

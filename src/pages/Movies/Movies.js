@@ -87,7 +87,7 @@ const handleGenreFilter = (genreId) => {
         <Col lg={4} xs={12}>
           <GenreFilter genres={genres} />
         </Col>
-        <Col lg={9} xs={12}>
+        <Col lg={8} xs={12}>
           <Row>
             {/* {data?.results.map((movie, index)=>( */}
             {filteredResults.map((movie, index) => (

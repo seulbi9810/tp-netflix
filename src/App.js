@@ -6,7 +6,8 @@ import AppLayout from './Layout/AppLayout';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import NotFoundFile from './pages/NotFoundFile/NotFoundFile';
 import Home from './pages/Home/Home';
-
+import Login from './pages/Home/components/Login/Login';
+import Signup from './pages/Home/components/Signup/Signup';
 
 
 //홈페이지 / = index 와 같음
@@ -24,6 +25,8 @@ function App() {
           <Route index element={<Home/>}/>
           <Route path='/movies' element={<Movies/>}/>
           <Route path='/movies/:id' element={<Detail/>}/>
+          <Route path='/login' element={<Login/>}/>
+          <Route path='/signup' element={<Signup/>}/>
       </Route>
       <Route path="*" element={<NotFoundFile/>}/>
     </Routes>
