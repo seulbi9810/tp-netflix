@@ -4,7 +4,7 @@ import Container from 'react-bootstrap/Container';
 import Form from 'react-bootstrap/Form';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
-import { Outlet, useNavigate } from 'react-router-dom';
+import { Link, Outlet, useNavigate } from 'react-router-dom';
 import NetflixLogo from '../img/Netflix.png';
 import './AppLayout.css';  // 추가: CSS 파일을 import
 
@@ -21,11 +21,16 @@ const AppLayout = () => {
     //검색 후 초기화
     setKeyword("");
   }
+
+  const handleNavigate = (path) => {
+    navigate(path);
+  };
+
   return (
     <div className="app-layout">
-      <Navbar expand="lg" className="bg-body-tertiary" style={{ margin: 0, padding: 0, background: 'black', width: '100%' }}  > 
+      <Navbar expand="lg" className="bg-body-tertiary" style={{ margin:0 , padding: 0, background: 'black', width: '100%' }}  > 
       <Container fluid style={{background:'black', color:'white'}}>
-        <Navbar.Brand href="#"><img src={NetflixLogo} alt='netflix' style={{width:'200px'}}/></Navbar.Brand>
+        <Navbar.Brand onClick={() => handleNavigate('/')}><img src={NetflixLogo} alt='netflix' style={{width:'200px'}}/></Navbar.Brand>
         <Navbar.Toggle aria-controls="navbarScroll" />
         <Navbar.Collapse id="navbarScroll">
           <Nav
@@ -33,13 +38,13 @@ const AppLayout = () => {
             style={{ maxHeight: '100px', background:'black', color:'white'}}
             navbarScroll
           >
-            <Nav.Link href="/" style={{color:'white'}}>Home</Nav.Link>
-            <Nav.Link href="/movies" style={{color:'white'}}>Movie</Nav.Link>
+            <Link className='layout' to="/" style={{color:'white', textDecoration:'none'}} >Home</Link>
+            <Link className='layout' to="/movies" style={{color:'white', textDecoration:'none'}}>Movie</Link>
           
           </Nav>
           <Form className="d-flex" onSubmit={searchByKeyword}>
           <Form.Control
-              style={{ background: 'white', color: 'black' }}
+              style={{ background: 'white', color: 'black', marginRight:'1rem' }}
               type="search"
               placeholder="Search"
               className="me-2"
@@ -47,7 +52,8 @@ const AppLayout = () => {
               value={keyword}
               onChange={(event)=>setKeyword(event.target.value)}
             />
-            <Button type='submit' href='/movies' variant="outline-success"  style={{background: 'red', border:'none', ':hover': { background: 'darkblack'}}}>Search</Button>
+            <Button type='button'  onClick={() => handleNavigate('/movies')} variant="outline-success"  style={{background: 'red', marginRight:'1rem', border:'none', ':hover': { background: 'darkblack'}}}>Search</Button>
+            <Button type='button' onClick={() => handleNavigate('/login')} variant="outline-success"  style={{background: 'red', marginRight:'1rem', border:'none', ':hover': { background: 'darkblack'}}}>Login</Button>
           </Form>
         </Navbar.Collapse>
       </Container>

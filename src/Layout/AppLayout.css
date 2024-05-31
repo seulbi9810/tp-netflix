@@ -9,7 +9,10 @@ html, body {
   #root {
     height: 100%;
   }
-  
+  .layout{
+    font-size: 2rem;
+    margin: 1rem;
+  }
   .app-layout {
     min-height: 100vh;
     background-color: black;
