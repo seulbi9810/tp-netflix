@@ -54,6 +54,7 @@ const AppLayout = () => {
             />
             <Button type='button'  onClick={() => handleNavigate('/movies')} variant="outline-success"  style={{background: 'red', marginRight:'1rem', border:'none', ':hover': { background: 'darkblack'}}}>Search</Button>
             <Button type='button' onClick={() => handleNavigate('/login')} variant="outline-success"  style={{background: 'red', marginRight:'1rem', border:'none', ':hover': { background: 'darkblack'}}}>Login</Button>
+
           </Form>
         </Navbar.Collapse>
       </Container>

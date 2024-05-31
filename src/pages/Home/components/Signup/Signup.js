@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 // import React, { useState } from 'react';
 // import { AppleLoginButton, GoogleLoginButton, InstagramLoginButton } from "react-social-login-buttons";
 // import { Button } from 'react-bootstrap';
@@ -86,6 +87,7 @@ import Form from 'react-bootstrap/Form';
 import './Signup.css';
 
 const Signup = () => {
+
     const userid= useRef(null) 
     const password= useRef(null) 
 
@@ -108,6 +110,7 @@ const Signup = () => {
         .then( (text)=> alert('응답결과:' +text) )
         .catch( (error)=> alert('에러 : ' + error)) 
     };
+
 
     return (
         <div className='sign'>
@@ -134,3 +137,4 @@ const Signup = () => {
 };
 
 export default Signup;
+

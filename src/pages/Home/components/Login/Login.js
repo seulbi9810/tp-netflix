@@ -4,11 +4,18 @@ import { Button } from 'react-bootstrap';
 import Form from 'react-bootstrap/Form';
 import './Login.css';
 import axios from 'axios';
+<<<<<<< HEAD
 import { useNavigate } from 'react-router-dom';
 
 
 const Login = () => {
     const navigate = useNavigate(); // useNavigate 사용
+=======
+
+
+
+const Login = () => {
+>>>>>>> da5022591c53bd2d4c781e1039cfd82b7e5d2665
 
     const onClick = () => {
         // 버튼 클릭 시 실행될 코드
@@ -29,10 +36,13 @@ const Login = () => {
         }
     }
 
+<<<<<<< HEAD
     const handleNavigate = (path) => {
         navigate(path);
       };
 
+=======
+>>>>>>> da5022591c53bd2d4c781e1039cfd82b7e5d2665
     return (
         <div className='login'>
             <div className='login-box'>
@@ -48,6 +58,7 @@ const Login = () => {
                     <br/>
                     <Button onClick={() => handleNavigate('/')} className="btn-lg" type='submit' variant="primary">로그인</Button>{' '}
                     <Button onClick={() => handleNavigate('/signup')} className="btn-lg" type='submit' variant="primary">회원가입</Button>{' '}
+
                 </Form>
                 {error && <div>{error}</div>}
                 <div>
