@@ -6,7 +6,7 @@ import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import { Link, Outlet, useNavigate } from 'react-router-dom';
 import NetflixLogo from '../img/Netflix.png';
-import './AppLayout.css';  // 추가: CSS 파일을 import
+import './AppLayout.css';
 
 
 const AppLayout = () => {

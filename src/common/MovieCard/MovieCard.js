@@ -31,11 +31,10 @@ const MovieCard = ({movie}) => {
     const navigate= useNavigate()
 
     const goMovieDetail=()=>{
-        navigate(`/movies/{movie_id}`)
+        navigate(`/movies/${movie.id}`)
     }
 
   return (
-   
       <div onClick={goMovieDetail}
           style={{backgroundImage:"url("+`https://www.themoviedb.org/t/p/w600_and_h900_bestv2${movie.poster_path}`+
           ")",
@@ -51,7 +50,6 @@ const MovieCard = ({movie}) => {
               <div>인기도 : {movie.popularity}🔥</div>
               <div>{movie.adult?'over18 : 🔞':'under18 : 🚫'}</div>
           </div>
-        
       </div>
    
   )

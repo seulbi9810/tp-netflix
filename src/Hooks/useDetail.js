@@ -1,15 +1,15 @@
-import { useQuery } from '@tanstack/react-query'
-import api from '../utils/api'
+import { useQuery } from "@tanstack/react-query";
+import api from "../utils/api";
 
-const fetchDetailMovies=()=>{
-  return api.get(`/movie/{movie_id}`)
+const fetchMovieDetails = ({ movieId }) => {
+    return api.get(`/movie/${movieId}`)
 }
 
-export const useDetailQuery = (movie_id) => {
-  return useQuery({
-    queryKey:['movie-detail',movie_id],
-    queryFn:fetchDetailMovies(movie_id),
-    select:(result)=>result.data
-  })
+export const useMovieDetailsQuery = (movieId) => {
+    return useQuery({
+        queryKey: ['movie-details', movieId],
+        queryFn: () => fetchMovieDetails({ movieId }),
+        select: (result) => result.data,
+        enabled: !!movieId,  // movieId가 있을 때만 쿼리를 실행
+    })
 }
-

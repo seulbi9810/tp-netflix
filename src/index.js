@@ -13,7 +13,7 @@ const queryClient= new QueryClient()
 root.render(
     <Provider store={store}> {/* Redux Provider 추가 */}
         <QueryClientProvider client={queryClient}>
-                <App />
+            <App />
         </QueryClientProvider>
     </Provider>
 );

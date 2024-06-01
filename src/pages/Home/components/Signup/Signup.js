@@ -1,4 +1,4 @@
-<<<<<<< HEAD
+
 // import React, { useState } from 'react';
 // import { AppleLoginButton, GoogleLoginButton, InstagramLoginButton } from "react-social-login-buttons";
 // import { Button } from 'react-bootstrap';
