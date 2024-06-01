@@ -44,7 +44,7 @@ const Detail = () => {
             <p>평점: {data.vote_average}⭐</p>
             <div className="detail-links">
               <Button
-                variant="secondary"
+                variant="danger"
                 as={Link}
                 to={`/movies/${id}/reviews`}
                 className="detail-button"
