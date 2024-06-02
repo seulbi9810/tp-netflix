@@ -48,7 +48,7 @@ const MovieCard = ({movie}) => {
               ))}
               <div>평점 : {movie.vote_average}⭐</div>
               <div>인기도 : {movie.popularity}🔥</div>
-              <div>{movie.adult?'over18 : 🔞':'under18 : 🚫'}</div>
+              <div>{movie.adult ? 'over18 : 🔞':'under18 : 🚫'}</div>
           </div>
       </div>
    
