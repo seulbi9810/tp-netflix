@@ -28,23 +28,21 @@ const AppLayout = () => {
 
   return (
     <div className="app-layout">
-      <Navbar expand="lg" className="bg-body-tertiary" style={{ margin:0 , padding: 0, background: 'black', width: '100%' }}  > 
+      <Navbar expand="lg" className="navbar-custom" > 
       <Container fluid style={{background:'black', color:'white'}}>
-        <Navbar.Brand onClick={() => handleNavigate('/')}><img src={NetflixLogo} alt='netflix' style={{width:'200px'}}/></Navbar.Brand>
+        <Navbar.Brand onClick={() => handleNavigate('/')}><img src={NetflixLogo} alt='netflix' style={{width:'200px', cursor:'pointer'}}/></Navbar.Brand>
         <Navbar.Toggle aria-controls="navbarScroll" />
         <Navbar.Collapse id="navbarScroll">
           <Nav
             className="me-auto my-2 my-lg-0"
-            style={{ maxHeight: '100px', background:'black', color:'white'}}
             navbarScroll
           >
-            <Link className='layout' to="/" style={{color:'white', textDecoration:'none'}} >Home</Link>
-            <Link className='layout' to="/movies" style={{color:'white', textDecoration:'none'}}>Movie</Link>
+            <Link className='layout' to="/" >Home</Link>
+            <Link className='layout' to="/movies">Movie</Link>
           
           </Nav>
           <Form className="d-flex" onSubmit={searchByKeyword}>
           <Form.Control
-              style={{ background: 'white', color: 'black', marginRight:'1rem' }}
               type="search"
               placeholder="Search"
               className="me-2"
