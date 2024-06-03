@@ -1,52 +1,35 @@
 <?php
-session_start();
+    header('Content-Type:text/plain; charset=utf-8');
+    header("Access-Control-Allow-Origin: *");
+    header("Access-Control-Allow-Methods: POST, GET, OPTIONS");
+    header("Access-Control-Allow-Headers: Content-Type, Authorization");
 
-// 데이터베이스 연결 설정
-$servername = "localhost";
-$username = "username";
-$password = "password";
-$dbname = "myDB";
+    // client가 보낸 json은 파일로 받기에 이를 읽어들여야 함
+    $jsonData= file_get_contents('php://input');
 
-// 데이터베이스 연결
-$conn = new mysqli($servername, $username, $password, $dbname);
+    // json parsing ---> associate array
+    $data= json_decode($jsonData, true);  //두번째 파라미터 true : 연관배열 변환 여부
+    $userid= $data['userid'];
+    $password= $data['password'];
 
-// 연결 확인
-if ($conn->connect_error) {
-    die("Connection failed: " . $conn->connect_error);
-}
+    $db = mysqli_connect('localhost','sharar','a1s2d3f!','sharar');
+    mysqli_query($db, 'set names utf8');
 
-// 로그인 처리
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    $username = $_POST['username'];
-    $password = $_POST['password'];
+    $sql = "SELECT * FROM netflix WHERE userid = '$userid' AND password = '$password'";
+    $result = mysqli_query($db, $sql);
+    $conut= mysqli_num_rows($result);
+    
+    if($conut > 0){
+        $board= mysqli_fetch_array($result, MYSQLI_ASSOC);
+        $userid = $board['userid'];
 
-    $sql = "SELECT * FROM users WHERE username='$username' AND password='$password'";
-    $result = $conn->query($sql);
-
-    if ($result->num_rows == 1) {
-        // 로그인 성공
-        $_SESSION['login_user'] = $username;
-        header("location: welcome.php"); // 로그인 후 이동할 페이지
+        echo $userid;
+    }else echo "실패";
+    if($result) {
+       echo "200"; 
     } else {
-        $error = "아이디 또는 비밀번호가 잘못되었습니다.";
+        echo "203";
     }
-}
-?>
 
-<?php
-// 이 부분에는 사용자 인증 및 세션 처리 로직을 구현해야 합니다.
-// 여기서는 간단한 예시를 사용하겠습니다.
-
-// POST 요청에서 아이디와 비밀번호를 가져옴
-$username = $_POST['username'];
-$password = $_POST['password'];
-
-// 예시: 사용자가 "admin" 아이디와 "password" 비밀번호를 입력했다고 가정
-if ($username === 'admin' && $password === 'password') {
-    // 로그인 성공 메시지 반환
-    echo json_encode(['message' => '로그인 성공']);
-} else {
-    // 로그인 실패 메시지 반환
-    echo json_encode(['message' => '아이디 또는 비밀번호가 잘못되었습니다.']);
-}
+    mysqli_close($db);
 ?>
