@@ -1,0 +1,14 @@
+.review{
+    display: flex;
+    justify-content: center;
+    padding: 20px;
+    color: black;
+}
+
+.review-box{
+    width: 80%;
+    border: 1px solid #ccc;
+    padding: 20px;
+    border-radius: 8px;
+    background-color: #f9f9f9;
+}
